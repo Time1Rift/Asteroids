@@ -188,7 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rootShip: {fileID: 247174769}
-  _spawner: {fileID: 1476280792}
   _endGameWindow: {fileID: 247174772}
 --- !u!114 &247174772
 MonoBehaviour:
@@ -1068,7 +1067,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1653063132
 Transform:

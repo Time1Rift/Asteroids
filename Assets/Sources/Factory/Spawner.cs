@@ -11,12 +11,12 @@ public class Spawner : MonoBehaviour
     private Vector2 _position;
     private Vector2 _direction;
 
-    public void OnStart()
+    public void Start()
     {
         _timer = _info.TimeSpawn;
     }
 
-    public void OnUpdate()
+    public void Update()
     {
         _timer -= Time.deltaTime;
 

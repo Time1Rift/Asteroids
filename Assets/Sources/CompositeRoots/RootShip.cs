@@ -13,7 +13,7 @@ public class RootShip : MonoBehaviour
     private DefaultGun _baseGun;
     private LaserGun _laserGun;
 
-    public void OnAwake()
+    public void Initialized()
     {
         _ship = new Ship(_infoShip);
         _baseGun = new DefaultGun(_ship, _infoGun);
@@ -38,7 +38,7 @@ public class RootShip : MonoBehaviour
         _shipPresenter.ShipDisabled -= DisableShip;
     }
 
-    public void OnUpdate()
+    public void Update()
     {
         _shipInputRouter.Update(Time.deltaTime);
         _ship.Update(Time.deltaTime);

@@ -4,6 +4,7 @@ public class CompositionOrder : MonoBehaviour
 {
     [SerializeField] private RootShip _rootShip;
     [SerializeField] private Spawner _spawner;
+    [SerializeField] private EndGameWindow _endGameWindow;
 
     private void Awake()
     {
@@ -13,11 +14,13 @@ public class CompositionOrder : MonoBehaviour
     private void OnEnable()
     {
         _rootShip.Enable();
+        _endGameWindow.Enable();
     }
 
     private void OnDisable()
     {
         _rootShip.Disable();
+        _endGameWindow.Disable();
     }
 
     private void Start()

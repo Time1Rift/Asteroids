@@ -1,4 +1,5 @@
 using UnityEngine;
+using Asteroids.Model;
 
 public class Spawner : MonoBehaviour
 {

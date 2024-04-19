@@ -1,33 +1,36 @@
 using System;
 using UnityEngine;
 
-public class DefaultGun
+namespace Asteroids.Model
 {
-    protected readonly Transformable _point;
-    private readonly float _speed;
-    
-    protected float _lifetime;
-    private Bullet _bullet;
-
-    public DefaultGun(Transformable point, InfoGun infoGun)
+    public class DefaultGun
     {
-        _point = point;
-        _speed = infoGun.SpeedDefaultBullet;
-        _lifetime = infoGun.LifetimeDefaultBullet;
+        protected readonly Transformable _point;
+        private readonly float _speed;
+
+        protected float _lifetime;
+        private Bullet _bullet;
+
+        public DefaultGun(Transformable point, InfoGun infoGun)
+        {
+            _point = point;
+            _speed = infoGun.SpeedDefaultBullet;
+            _lifetime = infoGun.LifetimeDefaultBullet;
+        }
+
+        public virtual bool CanShot => true;
+
+        public event Action<Bullet> Shot;
+
+        public void Shoot()
+        {
+            if (CanShot == false)
+                throw new InvalidOperationException();
+
+            _bullet = GetBullet();
+            Shot?.Invoke(_bullet);
+        }
+
+        protected virtual Bullet GetBullet() => new DefaultBullet(_point.Position, _lifetime, _speed, _point.Forward);
     }
-
-    public virtual bool CanShot => true;
-
-    public event Action<Bullet> Shot;
-
-    public void Shoot()
-    {
-        if(CanShot == false)
-            throw new InvalidOperationException();
-       
-        _bullet = GetBullet();
-        Shot?.Invoke(_bullet);
-    }
-
-    protected virtual Bullet GetBullet() => new DefaultBullet(_point.Position, _lifetime, _speed, _point.Forward);
 }

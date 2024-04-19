@@ -1,4 +1,7 @@
-public interface IUpdatable
+namespace Asteroids.Model
 {
-    void Update(float deltaTime);
+    public interface IUpdatable
+    {
+        void Update(float deltaTime);
+    }
 }

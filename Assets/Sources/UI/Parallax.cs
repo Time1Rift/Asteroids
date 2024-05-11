@@ -12,9 +12,13 @@ public class Parallax : MonoBehaviour
     private float _currentWidht;
     private bool _isWorking;
 
-    private void Start()
+    private void Awake()
     {
         _imoge = GetComponent<RawImage>();
+    }
+
+    private void Start()
+    {        
         _imogePositionX = _imoge.uvRect.x;
     }
 
